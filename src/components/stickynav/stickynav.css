@@ -1,0 +1,154 @@
+@lost flexbox flex;
+
+$desktop-padding: 70px 50px;
+$black: #121212;
+$white: white;
+$blue: #00adef;
+$grey: #333333;
+$bring-forward: 9999;
+
+* { box-sizing: border-box }
+
+.lost-container {
+    lost-center: 100%;
+    lost-utility: clearfix;
+    lost-flex-container: row;
+    position: relative;
+    background-color: white;
+    z-index: 9999;
+    color: $white;
+    background-color: $black;
+    height: 60px;
+    font-size: 14px;
+    z-index: $bring-forward;
+}
+
+.lost-100 {
+    lost-column: 1 flex 0px;
+}
+
+.lost-50 {
+    lost-column: 1/2 flex 0px;
+}
+
+.padding {
+    padding-left: 15px;
+}
+
+.lost-heading {
+    lost-column: 1/5 flex 0px;
+    lost-align: left-center;
+}
+
+.lost-ul {
+    lost-column: 4/5 flex 0px;
+    lost-align: right;
+}
+
+.stickynav {
+
+}
+
+.stickynav > li {
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.stickynav > li:hover {
+    box-shadow:inset 0px -2px 0px 0px $blue;
+}
+
+.empty-node {
+    position: relative;
+    height: 60px;
+    display: none;
+}
+
+.nav-border {
+    position: relative;
+    bottom: 20px;
+    border: 0;
+    border-top: 1px solid $grey;
+    width: 100%;
+    padding: 0;
+}
+
+/*@media (max-width: 1000px) {*/
+    /*.lost-container {*/
+        /*width: 100%;*/
+    /*}*/
+    /*.nav-border {*/
+        /*display: none;*/
+    /*}*/
+/*}*/
+
+@media (max-width: 600px) {
+    /*.lost-container {*/
+        /*height: auto;*/
+    /*}*/
+    /*.lost-heading {*/
+        /*display: none;*/
+    /*}*/
+
+    /*.lost-ul {*/
+        /*lost-column: 1/1 flex 0px;*/
+        /*lost-align: right;*/
+    /*}*/
+    /*.stickynav {*/
+        /*position: relative;*/
+        /*overflow: hidden;*/
+        /*background-color: $black;*/
+        /*width: 100%;*/
+        /*height: 10%;*/
+        /*text-align: right;*/
+        /*transition: height 1s ease-in-out;*/
+    /*}*/
+    /*.stickynav > li {*/
+        /*display: block;*/
+        /*padding-bottom: 5px;*/
+    /*}*/
+    /*.stickynav > li:hover {*/
+        /*box-shadow:inset 0px 0px 0px 0px;*/
+        /*color: $blue;*/
+    /*}*/
+    /*.lost-ul {*/
+        /*position: relative;*/
+        /*!*lost-column: 1/2 flex 0px;*!*/
+        /*lost-align: top-right;*/
+        /*!*text-align: right;*!*/
+        /*height: 100px;*/
+        /*!*overflow: hidden;*!*/
+        /*!*height: 45px;*!*/
+    /*}*/
+    /*.stickynav.active {*/
+        /*height: 130%;*/
+    /*}*/
+
+
+
+    /*.lost-heading {*/
+        /*display: none;*/
+    /*}*/
+    /*.stickynav {*/
+        /*height: 40px;*/
+        /*overflow: hidden;*/
+        /*transition: height 1s ease-in-out;*/
+    /*}*/
+    /*.lost-container {*/
+        /*height: auto;*/
+    /*}*/
+    /*.lost-ul {*/
+        /*lost-align: top-right;*/
+        /*margin-top: 20px;*/
+    /*}*/
+    /*.lost-ul li {*/
+        /*display: block;*/
+        /*padding-bottom: 20px;*/
+    /*}*/
+    /*.stickynav.active {*/
+        /*height: auto;*/
+    /*}*/
+}
+

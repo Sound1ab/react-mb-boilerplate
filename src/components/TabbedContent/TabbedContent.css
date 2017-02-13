@@ -1,0 +1,142 @@
+.container {
+    background-color: white;
+    background-size: cover;
+    position: relative;
+}
+
+.tabs-container {
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 80px;
+    background-color: #00adef;
+    cursor: pointer;
+}
+
+.tabs-container .tab {
+    -webkit-box-shadow:inset 0px 0px 0px 1px darkgray;
+    -moz-box-shadow:inset 0px 0px 0px 1px darkgray;
+    box-shadow:inset 0px 0px 0px 1px darkgray;
+    position: relative;
+    display: table-cell;
+    height: 100%;
+    background-color: lightgray;
+    text-align: center;
+    vertical-align: middle;
+    transition: all 1s ease-out;
+    min-width: 200px;
+}
+
+.tabs-container .active {
+    -webkit-box-shadow:inset 0px 0px 0px 0px darkgray;
+    -moz-box-shadow:inset 0px 0px 0px 0px darkgray;
+    box-shadow:inset 0px 0px 0px 0px darkgray;
+    background-color: white;
+    color: #00adef;
+}
+
+
+.tabs-container .tab p {
+    text-align: center;
+    user-select: none;
+}
+
+.copy-container {
+     position: absolute;
+     display: table;
+     width: 100%;
+     background-color: white;
+ }
+
+.copy-container-parent {
+    height: 330px;
+    position: relative;
+    display: table;
+    width: 100%;
+}
+
+.copy-container p.heading {
+    font-weight: 600;
+    font-size: 17px;
+    padding: 0px 0 20px 0;
+}
+
+.element-container {
+    display: table-cell;
+    width: 50%;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.element-container.copy {
+    padding: 40px 15px;
+}
+
+.element-container img {
+    padding: 45px 45px;
+    top: 0;
+    height: auto;
+    width: 100%;
+    position: absolute;
+}
+
+.element-container.copy h4 {
+    padding: 25px 0 10px 0;
+}
+
+@media screen and (min-width: 770px) and (max-width: 999px) {
+    .tabs-container .tab {
+        min-width: auto;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 789px) {
+    .copy-container-parent {
+        height: auto;
+    }
+
+    .copy-container {
+        position: relative;
+        height: 100%
+    }
+    .element-container.copy {
+        padding: 40px 50px;
+    }
+    .element-container {
+        width: 100%;
+        height:auto;
+        display:block;
+    }
+    .element-container img {
+        padding: 0px;
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+
+<<<<<<< Updated upstream
+    .copy-container-parent {
+        height: auto;
+    }
+
+    .copy-container {
+        position: relative;
+        height: 100%
+    }
+
+=======
+>>>>>>> Stashed changes
+    .element-container.copy {
+        padding: 40px 30px;
+    }
+    .element-container {
+        width: 100%;
+        height:auto;
+        display:block;
+    }
+    .element-container img {
+        padding: 0px;
+        position: relative;
+    }
+}

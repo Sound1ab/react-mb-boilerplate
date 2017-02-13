@@ -1,0 +1,90 @@
+.container {
+    position: relative;
+    overflow: hidden;
+}
+
+.container .hidden {
+    left: -9999px;
+}
+
+.container .overlay {
+    position: absolute;
+    background-image: url(../../assets/images/section_1/PlayOverlay.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    top:0;
+    height: 100%;
+    width: 100%;
+}
+
+.videoControlBox {
+    cursor: pointer;
+    color: black;
+    width: 50px;
+    height: 50px;
+}
+
+.volume {
+    background-color: #1daeec;
+    position: absolute;
+    bottom: 20px;
+    right: 80px;
+    z-index: 99999;
+}
+
+.fullscreen {
+    background-color: #333333;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999;
+}
+
+.mute {
+    background: #333333;
+}
+
+.unmute {
+    background: #1daeec;
+}
+
+.mute:before{
+    font-family: 'mb-icons';
+    content: '\6a';
+    transform: scale(1.8);
+    position: absolute;
+    color: white;
+    top: 13px;
+    left: 17px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.unmute:before{
+    font-family: 'mb-icons';
+    content: '\68';
+    transform: scale(1.8);
+    position: absolute;
+    color: white;
+    top: 13px;
+    left: 17px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.fullscreen:before{
+    content: " ";
+    background: url(../../assets/svg/enlarge.svg);
+    background-size: 15px;
+    background-position-x: 2px;
+    background-position-y: 5px;
+    width: 23px;
+    height: 25px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+video {
+    width: 100% !important;
+    height: auto !important;
+}

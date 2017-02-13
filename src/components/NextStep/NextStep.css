@@ -1,0 +1,14 @@
+.container {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.container h2 {
+    padding: 40px 0 20px 0;
+    margin: 25px 0 5px 0;
+}
+.container .cta {
+    margin: 0 0 65px 0!important;
+    padding: 10px 80px!important;
+}

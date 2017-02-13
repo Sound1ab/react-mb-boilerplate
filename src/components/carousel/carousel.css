@@ -1,0 +1,60 @@
+$desktop-padding: 70px 50px;
+$black: black;
+$white: white;
+$bring-forward: 9999;
+
+.lost-container {
+    lost-utility: clearfix;
+}
+
+.lost-100 {
+    lost-column: 1;
+}
+
+.lost-50 {
+    lost-column: 1/2;
+}
+
+
+
+.carousel-container {
+    background-color: $black;
+}
+
+.copy-container {
+    position: absolute;
+    z-index: $bring-forward;
+    padding: $desktop-padding;
+    width: 500px;
+    top: 0;
+}
+
+.spacer {
+    background-color: $black;
+    display: block;
+    width: 54px;
+    height: 4px;
+    border: none;
+    float: left;
+}
+
+@media screen and (min-width: 851px) and (max-width: 999px) {
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 850px) {
+
+}
+
+@media (max-width: 768px) {
+    .spacer {
+        background-color: $white;
+    }
+    .copy-container {
+        position: relative;
+        background-color: $black;
+        color: $white;
+        width: auto;
+    }
+
+}

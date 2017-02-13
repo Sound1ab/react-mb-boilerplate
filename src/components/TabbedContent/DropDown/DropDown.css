@@ -1,0 +1,79 @@
+.container {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: black;
+}
+
+.dropdown-container {
+    display: block;
+    position: absolute;
+    margin: 0px 40px;
+    background-color: white;
+    border-radius: 3px;
+    height: 50px;
+    width: 335px;
+    overflow: hidden;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    -webkit-transition: height 0.5s ease-in-out;
+    -moz-transition: height 0.5s ease-in-out;
+    -ms-transition: height 0.5s ease-in-out;
+    -o-transition: height 0.5s ease-in-out;
+    transition: height 0.5s ease-in-out;
+}
+
+.dropdown-container.active {
+    height: 250px;
+
+}
+
+.dropdown-container .header {
+    display: block;
+    position: relative;
+    height: 50px;
+}
+
+.dropdown-container .list {
+    -webkit-box-shadow:inset 0px 1px 0px 1px darkgrey;
+    -moz-box-shadow:inset 0px 1px 0px 1px darkgrey;
+    box-shadow:inset 0px 1px 0px 1px darkgrey;
+    display: block;
+    position: relative;
+    height: 50px;
+}
+
+.dropdown-container .list:hover {
+    background-color: lightgrey;
+}
+
+.dropdown-container .list:active {
+    background-color: #727477;
+}
+
+.dropdown-container .header span {
+    color: #00adef;
+    line-height: 50px;
+    padding-left: 15px;
+}
+
+.dropdown-container .list span {
+    color: #000;
+    line-height: 50px;
+    padding-left: 15px;
+}
+
+.dropdown-container .header::before {
+    width: 19px;
+    content: " ";
+    background-image: url(../../../assets/svg/arrowscroller-secondary-black.svg);
+    position: absolute;
+    right: 17px;
+    top: 13px;
+    height: 20px;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+}

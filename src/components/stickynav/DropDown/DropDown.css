@@ -1,0 +1,88 @@
+$desktop-padding: 70px 50px;
+$black: #121212;
+$white: white;
+$blue: #00adef;
+$grey: #333333;
+$bring-forward: 9999;
+$height: 60px;
+
+@font-face {
+    font-family: 'mb-icons';
+    src: url('./mb-icons.svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: $height;
+    background-color: black;
+}
+
+.dropdown-container {
+    display: block;
+    position: absolute;
+    margin: 0px 40px;
+    background-color: $black;
+    /*clip-path: content-box;*/
+    z-index: 999;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: right;
+    clip-path: polygon(0% 0%, 100% 0%, 100% $height, 0% $height);
+    transition: all 0s ease;
+}
+
+.dropdown-container.active {
+    transition: all 0.8s ease;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.dropdown-container .header {
+    display: block;
+    position: relative;
+    height: $height;
+}
+
+.dropdown-container .list {
+    box-shadow:inset -1px 0px 0px 1px darkgrey;
+    display: block;
+    position: relative;
+    height: $height;
+    background-color: $black;
+}
+
+.dropdown-container .list:hover {
+    background-color: $grey;
+}
+
+.dropdown-container .list:active {
+    background-color: #727477;
+}
+
+.dropdown-container .header span {
+    color: $white;
+    line-height: $height;
+    padding-right: 40px;
+}
+
+.dropdown-container .list span {
+    color: $white;
+    line-height: $height;
+    padding-right: 40px;
+}
+
+.dropdown-container .header::before {
+    font-family: 'mb-icons';
+    content: '\25';
+    transform: scale(1);
+    position: absolute;
+    color: white;
+    top: 19px;
+    right: 20px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}

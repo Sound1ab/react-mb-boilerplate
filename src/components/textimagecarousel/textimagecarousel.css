@@ -1,0 +1,76 @@
+@lost flexbox flex;
+
+$desktop-padding: 70px 50px;
+$black: #121212;
+$white: white;
+$bring-forward: 9999;
+
+.lost-container {
+    lost-utility: clearfix;
+    lost-flex-container: row;
+
+
+}
+
+.reverse {
+    flex-direction: row-reverse;
+}
+
+.lost-100 {
+    lost-column: 1;
+}
+
+.lost-50 {
+    lost-column: 1/2 flex 0px;
+
+}
+
+.lost-center {
+    lost-align: middle-center;
+}
+
+.black {
+    background-color: $black;
+}
+
+.black .copy-container {
+    padding: $desktop-padding;
+    color: white;
+}
+
+.copy-container {
+    padding: $desktop-padding;
+    max-width: 100%;
+    /*flex-shrink: 1;*/
+}
+
+.img-container {
+    padding: 30px 0;
+}
+
+.black .spacer {
+    background-color: $white;
+    display: block;
+    width: 54px;
+    height: 4px;
+    border: none;
+}
+
+.spacer {
+    background-color: $black;
+    display: block;
+    width: 54px;
+    height: 4px;
+    border: none;
+    float: left;
+}
+
+@media (max-width: 999px) {
+    .tablet-lost-100 {
+        lost-column: 1 flex 0px!important;
+    }
+    .img-container {
+        padding: 0 0;
+    }
+}
+
