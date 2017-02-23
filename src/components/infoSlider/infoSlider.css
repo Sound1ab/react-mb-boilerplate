@@ -1,0 +1,49 @@
+@import "../../assets/css/partials/grid.css";
+@import "../../assets/css/partials/mediaqueries.css";
+@import "../../assets/css/partials/base.css";
+
+.container {
+  @apply --lost-container;
+  margin: 0;
+}
+
+.imgContainer {
+  @apply --lost-50;
+}
+
+.imgPadding {
+  padding: 70px;
+  flex-grow: 1;
+}
+
+.copyContainer {
+  @apply --lost-50;
+  @apply --lost-center;
+}
+
+.copyPadding {
+  padding: 70px;
+  flex-grow: 1;
+}
+
+.spacer {
+  background-color: $black;
+  display: block;
+  width: 54px;
+  height: 4px;
+  border: none;
+  float: left;
+}
+
+/*.circle {*/
+  /*border-radius: 50%;*/
+/*}*/
+
+.decorators {
+  position: absolute;
+  margin-top: 16%;
+  
+  & div {
+    display: inline;
+  }
+}

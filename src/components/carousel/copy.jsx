@@ -11,7 +11,7 @@ const Copy = ({ title, copy, url }) => {
         url: React.PropTypes.string.isRequired,
     };
     return(
-        <div className={`${styles['copy-container']}`} >
+        <div className={styles.copyContainer} >
             <hr className={`${styles['spacer']}`}/>
             <h1>{title}</h1>
             <p>{copy}</p>

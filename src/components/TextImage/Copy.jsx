@@ -20,12 +20,10 @@ const Copy = ({ data, index }) => {
         CTA = <a href={data[index].url} className={`cta blue`} target='_blank'>Find out more</a>;
     }
     return (
-        <div className={`${styles['']} `}>
-            <div className={`${styles['copyContainer']}`}>
-                <h2>{data[index].headline}</h2>
-                <p dangerouslySetInnerHTML={createCopyMarkup()}></p>
-                {CTA}
-            </div>
+        <div className={styles.copyPadding}>
+            <h2 className={styles.h2Margin}>{data[index].headline}</h2>
+            <p dangerouslySetInnerHTML={createCopyMarkup()}></p>
+            {CTA}
         </div>
     );
 };

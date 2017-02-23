@@ -1,59 +1,46 @@
-@lost flexbox flex;
+@import "../../assets/css/partials/grid.css";
+@import "../../assets/css/partials/mediaqueries.css";
+@import "../../assets/css/partials/base.css";
 
-$desktop-padding: 70px 50px;
-$black: #121212;
-$white: white;
-$bring-forward: 9999;
+.container {
+    @apply --lost-container;
+}
 
-.lost-container {
-    lost-utility: clearfix;
-    lost-flex-container: row;
+.imgContainer {
+    @apply --lost-50;
 
+    @media (--tablet-viewport) {
+        @apply --lost-100;
+    }
+}
 
+.imgPadding {
+    padding: 30px 0;
+    flex-shrink: 1;
+}
+
+.copyContainer {
+    @apply --lost-50;
+    @apply --lost-center;
+
+    @media (--tablet-viewport) {
+        @apply --lost-100;
+    }
+}
+
+.copyPadding {
+    padding: $desktop-padding;
+    max-width: 100%;
+    /*flex-shrink: 1;*/
 }
 
 .reverse {
     flex-direction: row-reverse;
 }
 
-.lost-100 {
-    lost-column: 1;
-}
-
-.lost-50 {
-    lost-column: 1/2 flex 0px;
-
-}
-
-.lost-center {
-    lost-align: middle-center;
-}
-
-.black {
+.black .copyContainer {
     background-color: $black;
-}
-
-.black .copy-container {
-    padding: $desktop-padding;
     color: white;
-}
-
-.copy-container {
-    padding: $desktop-padding;
-    max-width: 100%;
-    /*flex-shrink: 1;*/
-}
-
-.img-container {
-    padding: 30px 0;
-}
-
-.black .spacer {
-    background-color: $white;
-    display: block;
-    width: 54px;
-    height: 4px;
-    border: none;
 }
 
 .spacer {
@@ -65,12 +52,6 @@ $bring-forward: 9999;
     float: left;
 }
 
-@media (max-width: 999px) {
-    .tablet-lost-100 {
-        lost-column: 1 flex 0px!important;
-    }
-    .img-container {
-        padding: 0 0;
-    }
+.black .spacer {
+    background-color: $white;
 }
-

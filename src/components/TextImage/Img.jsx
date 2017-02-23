@@ -11,9 +11,9 @@ const Copy = ({ data, index, copyPlacement }) => {
         copyPlacement: React.PropTypes.string.isRequired,
     };
     return (
-        <div className={`${styles[copyPlacement]} ${styles['img']}`}>
-            <img src={data[index].img} />
-            <div className={`${styles['chevron']}`}></div>
+        <div>
+            <img src={data[index].img} width="100%"/>
+            <div className={styles.chevron}></div>
         </div>
     );
 };

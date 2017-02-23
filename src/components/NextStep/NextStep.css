@@ -1,14 +1,36 @@
+@import "../../assets/css/partials/grid.css";
+@import "../../assets/css/partials/mediaqueries.css";
+@import "../../assets/css/partials/base.css";
+
 .container {
-    background-color: black;
+    @apply --lost-container-1000;
+    background-color: $black;
+}
+
+.header {
+    @apply --lost-100;
+    @apply --lost-center;
     color: white;
+    padding: 40px 0 20px 0;
     text-align: center;
 }
 
-.container h2 {
-    padding: 40px 0 20px 0;
-    margin: 25px 0 5px 0;
+.ctaContainer {
+    @apply --lost-100;
+    @apply --lost-center;
+    padding: 10px 0 40px 0;
+
 }
-.container .cta {
-    margin: 0 0 65px 0!important;
-    padding: 10px 80px!important;
+
+.cta {
+    @apply  --lost-center;
+    padding: 15px 20px;
+    background-color: $blue;
+    width: 250px;
+    transition: background 0.4s;
+    color: white!important;
+
+    &:hover {
+        background: #02c7ff;
+    }
 }

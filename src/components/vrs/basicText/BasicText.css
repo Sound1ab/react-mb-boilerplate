@@ -1,0 +1,36 @@
+@import "../../../assets/css/partials/mediaqueries.css";
+@import "../../../assets/css/partials/base.css";
+
+.container {
+    padding: 60px 160px;
+
+    @media (--mobile-viewport) {
+        padding: 40px 30px;
+    }
+}
+
+.white {
+    background-color: $white;
+    color: $black;
+}
+
+.black {
+    background-color: $black;
+    color: $white;
+}
+
+.spacer {
+    display: block;
+    width: 54px;
+    height: 4px;
+    border: none;
+    float: left;
+}
+
+.white .spacer {
+    background-color: $black;
+}
+
+.black .spacer {
+    background-color: $white;
+}

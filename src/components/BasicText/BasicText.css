@@ -1,49 +1,36 @@
+@import "../../assets/css/partials/mediaqueries.css";
+@import "../../assets/css/partials/base.css";
+
 .container {
     padding: 60px 160px;
+
+    @media (--mobile-viewport) {
+        padding: 40px 30px;
+    }
 }
 
 .white {
-    background-color: white;
-    color: black;
+    background-color: $white;
+    color: $black;
 }
 
 .black {
-    background-color: black;
-    color: white;
+    background-color: $black;
+    color: $white;
+}
+
+.spacer {
+    display: block;
+    width: 54px;
+    height: 4px;
+    border: none;
+    float: left;
 }
 
 .white .spacer {
-    background-color: black;
-    display: block;
-    width: 54px;
-    height: 4px;
-    border: none;
-    float: left;
+    background-color: $black;
 }
 
 .black .spacer {
-    background-color: white;
-    display: block;
-    width: 54px;
-    height: 4px;
-    border: none;
-    float: left;
-}
-
-@media screen and (min-width: 851px) and (max-width: 999px) {
-
-}
-
-@media screen and (min-width: 769px) and (max-width: 850px) {
-
-}
-
-@media screen and (min-width: 600px) and (max-width: 768px) {
-
-}
-
-@media screen and (max-width: 600px) {
-    .container {
-        padding: 40px 30px;
-    }
+    background-color: $white;
 }

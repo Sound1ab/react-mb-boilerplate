@@ -1,0 +1,95 @@
+@import "../../assets/css/partials/grid.css";
+@import "../../assets/css/partials/mediaqueries.css";
+@import "../../assets/css/partials/base.css";
+
+.container {
+  @apply --lost-container;
+  color: black;
+}
+
+.black {
+  background-color: $black;
+  color: white;
+}
+
+.cta {
+  @apply  --lost-center;
+  padding: 15px 20px;
+  background-color: $blue;
+  margin: 20px;
+  transition: background 0.4s;
+  color: white !important;
+
+  &:hover {
+    background: #02c7ff;
+  }
+}
+
+.cta100 {
+  @apply --lost-100-margin-10;
+}
+
+.cta50 {
+  @apply --lost-50-margin-10;
+
+  @media (--mobile-viewport) {
+    @apply  --lost-100-margin-10
+  }
+}
+
+.cta33 {
+  @apply --lost-33-margin-10;
+
+  @media (--tabletmini-viewport) {
+    @apply  --lost-50-margin-10
+  }
+
+  @media (--mobile-viewport) {
+    @apply  --lost-100-margin-10
+  }
+}
+
+.cta25 {
+  @apply --lost-25-margin-10;
+
+  & .cta {
+    margin: 20px 0;
+  }
+
+  @media (--tabletmini-viewport) {
+    @apply  --lost-50-margin-10
+  }
+
+  @media (--mobile-viewport) {
+    @apply  --lost-100-margin-10
+  }
+}
+
+.cta20 {
+  @apply --lost-20-margin-10;
+
+  & .cta {
+    margin: 20px 0;
+  }
+
+  @media (--tablet-viewport) {
+    @apply  --lost-50-margin-10
+  }
+
+  @media (--mobile-viewport) {
+    @apply  --lost-100-margin-10
+  }
+}
+
+.ctaPadding {
+  padding: 20px 20px;
+}
+
+.copyPadding {
+  padding: 0 20px;
+  border-bottom: solid 1px black;
+}
+
+.black .copyPadding{
+  border-bottom: solid 1px white;
+}

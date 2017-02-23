@@ -8,18 +8,27 @@ import Img from './Img';
 // StyleSheets
 import styles from './TextImage.css';
 
-const TextImage = ({ copyPlacement, ...passThroughProps }) => {
+const TextImage = ({ reverse, color, ...passThroughProps }) => {
     TextImage.propTypes = {
         data: React.PropTypes.array.isRequired,
         index: React.PropTypes.number.isRequired,
-        copyPlacement: React.PropTypes.string.isRequired
+        reverse: React.PropTypes.number.isRequired,
+        color: React.PropTypes.number.isRequired
     };
+    let reverseClass;
+    if(reverse){
+        reverseClass = 'reverse';
+    }
+    let colorClass;
+    if(color){
+        colorClass = 'black';
+    }
     return (
-        <div className={`${styles['container']} grid-container grid-parent `}>
-            <div className={`${styles[copyPlacement]} ${styles['imgPlacement']} grid-parent grid-50 tablet-grid-100 tabletmini-grid-100 mobile-grid-100`}>
+        <div className={`${styles['container']} ${styles[reverseClass]} ${styles[colorClass]}`}>
+            <div className={styles.imgContainer}>
                 <Img {...passThroughProps} />
             </div>
-            <div className={`${styles['component-container']} ${styles[copyPlacement]} grid-parent grid-50 tablet-grid-100 tabletmini-grid-100 mobile-grid-100`}>
+            <div className={styles.copyContainer}>
                 <Copy {...passThroughProps} />
             </div>
         </div>

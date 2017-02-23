@@ -1,194 +1,69 @@
+@import "../../assets/css/partials/grid.css";
+@import "../../assets/css/partials/mediaqueries.css";
+@import "../../assets/css/partials/base.css";
+
 .container {
-    background-color: white;
-    position: relative;
+  @apply --lost-container;
 }
 
-.center {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width:50%
-}
+.imgContainer {
+  @apply --lost-50;
+  position: relative;
 
-img {
-    width: 100%;
-    height: auto;
-}
-
-.copy {
-    color: black;
-}
-
-.left {
-    float: left!important;
-}
-
-.img.left {
-    float: none!important;
-}
-
-.right {
-    float: right!important;
-}
-
-.img.right {
-    float: none!important;
-}
-
-.left.imgPlacement {
-    float: right!important;
-}
-
-.right.imgPlacement {
-    float: left!important;
-}
-
-.components {
-    position: relative;
-    height: 100%;
+  @media (--tablet-viewport) {
+    @apply --lost-100;
+  }
 }
 
 .copyContainer {
-    color: black;
-    padding: 0px 40px;
-    padding: 0 50px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50%;
+  @apply --lost-50;
+  @apply --lost-center;
+  margin-left: 0!important;
+
+  @media (--tablet-viewport) {
+    @apply --lost-100;
+  }
 }
 
-.left .chevron {
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 20px solid #FFF;
-    position: absolute;
-    top: 50%;
-    transform: translatex(-25%) rotate(-90deg);
-    transform-origin: center center;
+.copyPadding {
+  padding: $desktop-padding;
+  flex-shrink: 1;
 }
 
-.copyContainer h2 {
-    margin-top: 0px!important;
-}
-
-a {
-    color: #00adef;
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
-}
-
-a:visited {
-    color: #00adef;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #006087;
-    text-decoration: none;
+.reverse {
+  flex-flow: row-reverse;
 
 }
 
-.right .chevron {
-    content: '';
-    display: inline-block;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 20px solid #FFF;
-    position: absolute;
-    top: 50%;
-    transform: translatex(-75%) rotate(90deg);
+.black .copyContainer {
+  background-color: $black;
+  color: white;
 }
 
-.spacer {
-    background-color: black;
+.h2Margin{
+  margin-top: 0;
 }
 
-@media screen and (min-width: 851px) and (max-width: 999px) {
-    .copyContainer hr {
-        display: none;
-    }
-    .copyContainer h1 {
-        font-size: 20px;
-        margin: 0 0 0 0;
-    }
+.chevron {
+  content: '';
+  display: inline-block;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #FFF;
+  position: absolute;
+  top: 50%;
+  transform: translatex(-75%) rotate(90deg);
 }
 
-@media screen and (min-width: 769px) and (max-width: 850px) {
-    .copyContainer {
-        padding: 15px 40px;
-    }
-    .copyContainer hr {
-        display: none;
-    }
-    .copyContainer h1 {
-        font-size: 20px;
-        margin: 0 0 0 0;
-    }
-    .copyContainer button {
-        margin: 10px 0;
-    }
+.reverse .chevron {
+  display: block;
+  transform: translatex(-25%) rotate(-90deg);
 }
 
-@media screen and (min-width: 600px) and (max-width: 768px) {
-    /*.component-container {*/
-        /*position: relative;*/
-        /*height: 50%;*/
-    /*}*/
-    .copyContainer {
-        position: relative;
-        padding: 70px 50px;
-        top: 0;
-        transform: translateY(0);
-        width: 100%;
-    }
-    .copyContainer button {
-        margin: 10px 0;
-    }
-    .center {
-        width:100%
-    }
-
-    .left .chevron {
-        border-right: 0px solid transparent;
-        border-top: 0px solid #FFF;
-        position: absolute;
-    }
-
-    .right .chevron {
-        border-left: 0px solid transparent;
-        border-right: 0px solid transparent;
-        border-top: 0px solid #FFF;
-    }
+.black .chevron {
+  border-top: 20px solid $black;
 }
 
-@media screen and (max-width: 600px) {
-    .copyContainer {
-        position: relative;
-        padding: 40px 30px;
-        top: 0;
-        transform: translateY(0);
-        width: 100%;
-    }
-    .center {
-        width:100%
-    }
-
-    .left .chevron {
-        border-right: 0px solid transparent;
-        border-top: 0px solid #FFF;
-        position: absolute;
-    }
-
-    .right .chevron {
-        border-left: 0px solid transparent;
-        border-right: 0px solid transparent;
-        border-top: 0px solid #FFF;
-    }
-}
-
-
-
+/*.reverse .chevron {*/
+  /*transform: translatex(-75%) rotate(90deg);*/
+/*}*/

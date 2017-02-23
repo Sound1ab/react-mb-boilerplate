@@ -1,0 +1,13 @@
+@import "../../../assets/css/partials/grid.css";
+@import "../../../assets/css/partials/mediaqueries.css";
+@import "../../../assets/css/partials/base.css";
+
+.accordian-content {
+  height: 0px;
+  overflow: hidden;
+  transition: height 1s ease-in-out;
+
+  &.active {
+    height:1000px;
+  }
+}

@@ -1,0 +1,82 @@
+@import "../../assets/css/partials/grid.css";
+@import "../../assets/css/partials/mediaqueries.css";
+@import "../../assets/css/partials/base.css";
+
+.container {
+  @apply --lost-container-1000;
+}
+
+.table {
+  width: 100%;
+}
+
+.bodySelectorContainer {
+  @apply --lost-container;
+}
+
+.bodySelector {
+  flex-grow: 1;
+  background: $lightgrey;
+  border: solid 1px darkgray;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+
+  &.active {
+    background-color: white;
+    border-bottom: solid 1px white;
+    color: $blue;
+  }
+
+}
+
+.bodySelectorPadding {
+  padding: 20px 20px;
+  text-align: center;
+
+}
+
+.roofSelectorContainer {
+  @apply --lost-container;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+  border-bottom: solid 1px darkgray;
+}
+
+.roofSelectorHeading {
+  flex-grow: 0;
+  margin-right: auto;
+  lost-align: bottom;
+
+  & h2 {
+    margin: 0 0;
+  }
+
+}
+
+.roofSelector {
+  flex-grow: 0;
+  color: black;
+  cursor: pointer;
+  right: 0;
+  padding-right: 10px;
+  border-bottom: solid 0px $white;
+  transition: all 0.5s ease-in-out;
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  &.active {
+    color: $blue;
+  }
+
+  &.active span {
+    padding-bottom: 12px;
+    border-bottom: solid 2px $blue;
+  }
+
+}
+
+.roofSelectorPadding {
+  padding-top: 70px;
+}

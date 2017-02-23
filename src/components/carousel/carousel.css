@@ -1,24 +1,25 @@
-$desktop-padding: 70px 50px;
-$black: black;
-$white: white;
-$bring-forward: 9999;
+@import "../../assets/css/partials/grid.css";
+@import "../../assets/css/partials/mediaqueries.css";
+@import "../../assets/css/partials/base.css";
 
-.lost-container {
-    lost-utility: clearfix;
-}
-
-.lost-100 {
-    lost-column: 1;
-}
-
-.lost-50 {
-    lost-column: 1/2;
-}
-
-
-
-.carousel-container {
+.container {
+    @apply --lost-container-1000;
     background-color: $black;
+}
+
+.copyContainer {
+    position: absolute;
+    z-index: $bring-forward;
+    padding: $desktop-padding;
+    width: 500px;
+    top: 0;
+
+    @media (--tabletmini-viewport) {
+        position: relative;
+        background-color: $black;
+        color: $white;
+        width: auto;
+    };
 }
 
 .copy-container {
@@ -27,6 +28,13 @@ $bring-forward: 9999;
     padding: $desktop-padding;
     width: 500px;
     top: 0;
+
+    @media (--tablet-viewport) {
+        position: relative;
+        background-color: $black;
+        color: $white;
+        width: auto;
+    };
 }
 
 .spacer {
@@ -36,25 +44,8 @@ $bring-forward: 9999;
     height: 4px;
     border: none;
     float: left;
-}
 
-@media screen and (min-width: 851px) and (max-width: 999px) {
-
-}
-
-@media screen and (min-width: 769px) and (max-width: 850px) {
-
-}
-
-@media (max-width: 768px) {
-    .spacer {
+    @media (--tablet-viewport) {
         background-color: $white;
-    }
-    .copy-container {
-        position: relative;
-        background-color: $black;
-        color: $white;
-        width: auto;
-    }
-
+    };
 }

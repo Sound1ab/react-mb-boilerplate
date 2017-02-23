@@ -1,0 +1,45 @@
+@import "../../assets/css/partials/grid.css";
+@import "../../assets/css/partials/mediaqueries.css";
+@import "../../assets/css/partials/base.css";
+
+.container {
+  @apply --lost-container;
+}
+
+.slickContainer {
+  @apply --lost-50;
+  position: relative;
+
+  @media (--tablet-viewport) {
+    @apply --lost-100;
+  }
+}
+
+.copyContainer {
+  @apply --lost-50;
+  @apply --lost-center;
+  margin-left: 0!important;
+
+  @media (--tablet-viewport) {
+    @apply --lost-100;
+  }
+}
+
+.copyPadding {
+  padding: $desktop-padding;
+  flex-shrink: 1;
+}
+
+.reverse {
+  flex-flow: row-reverse;
+
+}
+
+.black .copyContainer {
+  background-color: $black;
+  color: white;
+}
+
+.h2Margin{
+  margin-top: 0;
+}

@@ -1,0 +1,7 @@
+@import "./assets/css/partials/normalize.css";
+@import "./assets/css/partials/mb-styles.css";
+@import "./assets/css/partials/grid.css";
+
+.container {
+  @apply --lost-container-1000;
+}

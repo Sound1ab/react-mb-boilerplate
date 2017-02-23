@@ -22,7 +22,7 @@ const Carousel = ({ beforeChange }) => {
         slidesToScroll: 1
     };
     return (
-        <div className={`${styles['carousel-container']}`}>
+        <div className={styles.container}>
             <Slider {...Carousel.settings} afterChange={beforeChange}>
                 {Data.map((element, index) => {
                     return (
