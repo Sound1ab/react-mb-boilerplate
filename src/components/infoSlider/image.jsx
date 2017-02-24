@@ -12,52 +12,51 @@ import styles from './infoSlider.css';
 export default class  extends React.Component {
     constructor(){
         super();
+        this.state = {
+        	mount: false
+	    }
+	    this.mount = 1;
     }
     static propTypes = {
 
     }
     // componentWillMount(){
-	 //    this.style = {
-		//     borderRadius: spring('50%')
-	 //    }
+    // 	console.log('mounting');
+    // 	this.mount = 1;
     // }
-    // componentDidMount(){
-    //     console.log('componentDidMount');
-    // }
-	willLeave = () => ({
-    		opacity: 0
-	})
-
-
-	willEnter = () => {
-
-	}
-	getStyles = () => ({
-		opacity: spring(1),
-	});
+    componentWillUnmount(){
+    	console.log('unmounting');
+	    this.mount = !this.mount
+    }
     render () {
-    	const { src } = this.props;
+    	console.log(this.mount);
+    	const { src, uniqueKey } = this.props;
         return (
 	        <div className={styles.imgContainer}>
 		        <div className={styles.imgPadding}>
 			        <TransitionMotion
 				        willEnter={() => {
-				        	console.log('fire');
+					        console.log('firewillenter');
 				        	return {
-				        		opacity: 0
+						        opacity: 0
 					        }
 				        }}
 			            willLeave={() => {
-				            console.log('fire');
+			            	console.log('firewillleave');
 			            	return {
-			            		opacity: spring(1)
+			            		opacity: spring(0, {stiffness: 10, dampness: 1})
 				            }
 			            }}
-				        styles={[{
-				        	key: src,
+				        defaultStyles={[{
+					        key: this.uniqueKey,
+					        style: {
+						        opacity: 0
+					        },
+				        }]}
+				        styles={[ !this.mount ? [] : {
+				        	key: this.state.mount,
 					        style: {opacity: spring(1)}
 				        }]}
-
 			        >
 				        {interpolatedStyles =>
 					        <div>
@@ -70,7 +69,7 @@ export default class  extends React.Component {
 					                    }}
 					                    src={src}
 					                    width="100%" />
-							        <div>{console.log(config)}</div>
+							        <div>{config.style.opacity}</div>
 						        </div>
 						        )}
 					        </div>

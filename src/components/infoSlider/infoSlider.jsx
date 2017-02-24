@@ -4,6 +4,7 @@ import React from 'react';
 // Componenents
 import Image from './image';
 import Copy from './copy';
+import Slider from './slider';
 
 // Stylesheets
 import styles from './infoslider.css';
@@ -43,13 +44,17 @@ export default class InfoSlider extends React.Component {
 	            	if(index === arrayIndex){
 	            		return (
 				            <div className={styles.container}>
-		                        <Image src={element.img}/>
+		                        <Image src={element.img}
+		                               uniqueKey={this.state.index}/>
+					            {}
 					            <Copy
                                     title={element.title}
                                     copy={element.copy}
                                     index={index}
                                     incrementIndex={this.incrementIndex}
                                     decrementIndex={this.decrementIndex} />
+					            {}
+					            <Slider index={this.state.index} />
 				            </div>
 			            )
 		            }
