@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react';
-import { Motion, spring } from 'react-motion';
+import { Motion, spring, TransitionMotion } from 'react-motion';
 
 // Componenents
 
@@ -12,18 +12,9 @@ import styles from './infoSlider.css';
 export default class  extends React.Component {
     constructor(){
         super();
-        this.state = {
-			animate: false
-        }
-        this.style = {};
     }
     static propTypes = {
 
-    }
-    componentWillUnmount(){
-        this.style = {
-			x:
-        }
     }
     // componentWillMount(){
 	 //    this.style = {
@@ -33,37 +24,73 @@ export default class  extends React.Component {
     // componentDidMount(){
     //     console.log('componentDidMount');
     // }
-	square = () => {
-	    return {
-			borderRadius: spring('0%')
-	    }
+	willLeave = () => ({
+    		opacity: 0
+	})
+
+
+	willEnter = () => {
+
 	}
-	circle = () => {
-		return {
-			borderRadius: spring('50%')
-		}
-	}
-	animate = () => {
-    	this.setState({
-    		animate: !this.state.animate
-	    })
-	}
+	getStyles = () => ({
+		opacity: spring(1),
+	});
     render () {
     	const { src } = this.props;
-    	let style = this.state.animate ? this.square() : this.circle();
-    	console.log('fire');
         return (
 	        <div className={styles.imgContainer}>
 		        <div className={styles.imgPadding}>
-			        <Motion defaultStyle={{x: 0}} style={{x: spring(1)}}>
-				        {x =>
-			                <img style={{opacity: `${x.x}`}}
-			                     className={styles.circle}
-			                     src={src}
-			                     width="100%" />
-				        }
+			        <TransitionMotion
+				        willEnter={() => {
+				        	console.log('fire');
+				        	return {
+				        		opacity: 0
+					        }
+				        }}
+			            willLeave={() => {
+				            console.log('fire');
+			            	return {
+			            		opacity: spring(1)
+				            }
+			            }}
+				        styles={[{
+				        	key: src,
+					        style: {opacity: spring(1)}
+				        }]}
 
-			        </Motion>
+			        >
+				        {interpolatedStyles =>
+					        <div>
+				        		{interpolatedStyles.map(config =>
+						        <div>
+			                        <img
+								        key={config.key}
+					                    style={{
+						                    ...config.style
+					                    }}
+					                    src={src}
+					                    width="100%" />
+							        <div>{console.log(config)}</div>
+						        </div>
+						        )}
+					        </div>
+				        }
+			        </TransitionMotion>
+
+				        {/*{(styles) => (*/}
+					        {/*<div>*/}
+						        {/*{ styles.map(({ key, style, data}) => (*/}
+							        {/*<img style={{...style}}*/}
+							             {/*key={key}*/}
+							             {/*src={src}*/}
+							             {/*width="100%" />*/}
+						        {/*))}*/}
+						        {/*{ styles.map(({ key, style, data}) => (*/}
+							        {/*<div>{console.log(style)}</div>*/}
+						        {/*))}*/}
+
+					        {/*</div>*/}
+				        {/*)}*/}
 		        </div>
 		        <button onClick={this.animate}>animate</button>
 	        </div>
