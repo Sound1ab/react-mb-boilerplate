@@ -47,3 +47,7 @@
     display: inline;
   }
 }
+
+.extender {
+  height: 78px!important;
+}

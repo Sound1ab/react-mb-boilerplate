@@ -25,24 +25,20 @@ export default class  extends React.Component {
     // 	this.mount = 1;
     // }
     componentWillUnmount(){
-    	console.log('unmounting');
 	    this.mount = !this.mount
     }
     render () {
-    	console.log(this.mount);
     	const { src, uniqueKey } = this.props;
         return (
 	        <div className={styles.imgContainer}>
 		        <div className={styles.imgPadding}>
 			        <TransitionMotion
 				        willEnter={() => {
-					        console.log('firewillenter');
 				        	return {
 						        opacity: 0
 					        }
 				        }}
 			            willLeave={() => {
-			            	console.log('firewillleave');
 			            	return {
 			            		opacity: spring(0, {stiffness: 10, dampness: 1})
 				            }

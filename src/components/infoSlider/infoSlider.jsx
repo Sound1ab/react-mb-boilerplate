@@ -16,7 +16,8 @@ export default class InfoSlider extends React.Component {
     constructor(){
         super();
         this.state = {
-			index: 0
+			index: 0,
+	        action: null
         }
     }
     static propTypes = {
@@ -26,14 +27,16 @@ export default class InfoSlider extends React.Component {
 	    const { index } = this.state;
 	    let newIndexState = index === Data.length - 1 ? 0 : index + 1;
         this.setState({
-            index: newIndexState
+            index: newIndexState,
+	        action: 'INC'
         })
     }
 	decrementIndex = () => {
         const { index } = this.state;
         let newIndexState = index === 0 ? Data.length - 1 : index - 1;
 		this.setState({
-			index: newIndexState
+			index: newIndexState,
+			action: 'DEC'
 		})
 	}
     render () {
@@ -54,7 +57,7 @@ export default class InfoSlider extends React.Component {
                                     incrementIndex={this.incrementIndex}
                                     decrementIndex={this.decrementIndex} />
 					            {}
-					            <Slider index={this.state.index} />
+					            <Slider {...this.state} length={Data.length}/>
 				            </div>
 			            )
 		            }
