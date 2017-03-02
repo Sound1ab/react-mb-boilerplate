@@ -23,16 +23,22 @@ export default [
         copy: 'All of the UK’s major online supermarkets use Sprinters to keep breakfast, lunch and dinner moving – right now, there are over 50,000 Mercedes-Benz vans making grocery deliveries up and down the land.',
         url: '#'
     },
-    {
-        img: img3,
-        title: 'Keeping life’s essentials moving.',
-        copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget finibus ante. Proin semper maximus diam non fermentum. Integer sed tempor neque, lobortis convallis neque. Vivamus ullamcorper.',
-        url: '#'
-    },
-    {
-        img: img1,
-        title: 'Keeping construction moving.',
-        copy: 'Over 1,000 variants of Mercedes-Benz Sprinter meet the industry’s exact needs – everything from body length, roof height and weight and load capacity to body style and drive mechanic can be specced to an individual business’s requirement.',
-        url: '#'
-    }
+	{
+		img: img1,
+		title: 'Keeping your food moving.',
+		copy: 'All of the UK’s major online supermarkets use Sprinters to keep breakfast, lunch and dinner moving – right now, there are over 50,000 Mercedes-Benz vans making grocery deliveries up and down the land.',
+		url: '#'
+	},
+	{
+		img: img1,
+		title: 'Keeping your food moving.',
+		copy: 'All of the UK’s major online supermarkets use Sprinters to keep breakfast, lunch and dinner moving – right now, there are over 50,000 Mercedes-Benz vans making grocery deliveries up and down the land.',
+		url: '#'
+	},
+	{
+		img: img1,
+		title: 'Keeping your food moving.',
+		copy: 'All of the UK’s major online supermarkets use Sprinters to keep breakfast, lunch and dinner moving – right now, there are over 50,000 Mercedes-Benz vans making grocery deliveries up and down the land.',
+		url: '#'
+	}
 ];

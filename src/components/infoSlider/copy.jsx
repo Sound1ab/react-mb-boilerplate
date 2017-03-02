@@ -14,12 +14,10 @@ const Copy = ({ title, copy, url, index, incrementIndex, decrementIndex }) => {
     };
 	function createCopyMarkup() { return {__html: `${copy}`}; }
     return (
-	    <div className={styles.copyContainer}>
-		    <div className={styles.copyPadding}>
-			    <hr className={styles.spacer} />
-			    <h1>{title}</h1>
-			    <p dangerouslySetInnerHTML={createCopyMarkup()}></p>
-		    </div>
+	    <div>
+		    <hr className={styles.spacer} />
+		    <h1>{title}</h1>
+		    <p dangerouslySetInnerHTML={createCopyMarkup()}></p>
 		    <div className={styles.decorators}>
 			    <div onClick={decrementIndex}>
 				    Decrement

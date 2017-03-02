@@ -18,6 +18,12 @@
     --lost-50: {
         lost-column: 1/2 flex 0;
     };
+    --lost-45: {
+        lost-column: 45/100 flex 0;
+    };
+    --lost-40: {
+        lost-column: 2/5 flex 0;
+    };
     --lost-33: {
         lost-column: 1/3 flex 0;
     };
@@ -26,6 +32,9 @@
     };
     --lost-20: {
         lost-column: 1/5 flex 0;
+    };
+    --lost-10: {
+        lost-column: 1/10 flex 0;
     };
     --lost-100-margin-10: {
         lost-column: 1 flex 10px;

@@ -1,5 +1,6 @@
 // Dependencies
 import React from 'react';
+let MobileDetect = require('mobile-detect')
 
 // Components
 import CTAs from './components/ctas/ctas';
@@ -28,6 +29,17 @@ export default class App extends React.Component {
     constructor() {
         super();
         this.nodes = new Map();
+        this.state = {
+            device: 0
+        }
+    }
+
+    componentDidMount() {
+	    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+		    this.setState({
+			    width: null
+		    })
+	    }
     }
 
     computeAnchors = () => {
@@ -40,10 +52,48 @@ export default class App extends React.Component {
         return anchorArray;
     }
 
+	updateDimensions = () => {
+
+		let w = window,
+			d = document,
+			documentElement = d.documentElement,
+			body = d.getElementsByTagName('body')[0],
+			width = w.innerWidth || documentElement.clientWidth || body.clientWidth;
+		if (width > 0 && width <= 600) {
+		    this.setState({
+		        device: 'mobile'
+            })
+        }
+		if (width > 600 && width < 1000) {
+            console.log(width);
+			this.setState({
+				device: 'tablet'
+			})
+		}
+		if (width >= 1000) {
+			this.setState({
+				device: 'desktop'
+			})
+		}
+	};
+
+	componentWillMount() {
+		this.updateDimensions();
+	}
+
+	componentDidMount() {
+		window.addEventListener('resize', this.updateDimensions);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.updateDimensions);
+	}
+
     render() {
+
         return (
             <div className={styles.container}>
-                <InfoSlider />
+                <InfoSlider currentDevice={this.state.device} />
                 {/*<VRS color={0} reverse={0}/>*/}
                 {/*<Table />*/}
                 {/*<Stickynav computeAnchors={this.computeAnchors.bind(this)}/>*/}
@@ -53,7 +103,7 @@ export default class App extends React.Component {
                 {/*<div ref={anchorPoint => this.nodes.set(1, anchorPoint)}/>*/}
                 {/*<Carousel />*/}
                 {/*<div ref={anchorPoint => this.nodes.set(2, anchorPoint)}/>*/}
-                {/*<Scroller />*/}
+                <Scroller />
                 {/*<div ref={anchorPoint => this.nodes.set(3, anchorPoint)}/>*/}
                 {/*<TabbedContent />*/}
                 {/*<div ref={anchorPoint => this.nodes.set(4, anchorPoint)}/>*/}

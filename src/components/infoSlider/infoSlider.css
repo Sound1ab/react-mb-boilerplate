@@ -5,29 +5,73 @@
 .container {
   @apply --lost-container;
   margin: 0;
+  background-color: $black;
 }
 
 .imgContainer {
-  @apply --lost-50;
+  @apply --lost-45;
+  position: relative;
+  height: 500px;
+
+  @media (--tablet-viewport){
+    @apply --lost-100;
+    height: 400px;
+  }
 }
 
 .imgPadding {
-  padding: 70px;
+  position: relative;
+  padding: 30px 0 30px 40px;
   flex-grow: 1;
+}
+
+.fadeImage {
+  text-align: center;
+
+  @media (--tablet-viewport){
+    padding: 0 0 0 0!important;
+  }
 }
 
 .copyContainer {
-  @apply --lost-50;
-  @apply --lost-center;
+  @apply --lost-45;
+  position: relative;
+  height: 500px;
+  color: white;
+
+  @media (--tablet-viewport){
+    @apply --lost-100;
+    height: 400px;
+  }
 }
 
 .copyPadding {
-  padding: 70px;
+  padding: 70px 50px 70px 0;
   flex-grow: 1;
 }
 
+.fadeCopy {
+
+  @media (--tablet-viewport){
+    padding: 0 50px 0 50px!important;
+  }
+}
+
+.sliderContainer {
+  @apply --lost-10;
+  @apply --lost-center;
+
+  @media (--tablet-viewport){
+    display: none;
+  }
+}
+
+.sliderCenter {
+  position: relative;
+}
+
 .spacer {
-  background-color: $black;
+  background-color: $white;
   display: block;
   width: 54px;
   height: 4px;
@@ -35,9 +79,9 @@
   float: left;
 }
 
-/*.circle {*/
-  /*border-radius: 50%;*/
-/*}*/
+.circle {
+  border-radius: 50%;
+}
 
 .decorators {
   position: absolute;
@@ -46,8 +90,4 @@
   & div {
     display: inline;
   }
-}
-
-.extender {
-  height: 78px!important;
 }

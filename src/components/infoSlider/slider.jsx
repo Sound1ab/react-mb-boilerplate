@@ -1,6 +1,7 @@
 // Dependencies
 import React from 'react';
 import { spring, Motion} from 'react-motion';
+let d3 = require('d3-interpolate');
 
 // Componenents
 
@@ -9,112 +10,140 @@ import styles from './infoSlider.css';
 
 // Data
 
-const Slider = ({ index, action, length }) => {
-    Slider.propTypes = {
+const InfoSlider = ({ data, index, prevIndex, action, handleClick }) => {
+    InfoSlider.propTypes = {
         // data: React.PropTypes.array.isRequired
     };
-    Slider.container = {
-    	position: 'relative',
-	    width: 100
-    }
-	Slider.baseStyle = {
-        position: 'relative',
-    	width: 10,
-	    backgroundColor: 'blue',
-		margin: '0 auto',
-    }
-    Slider.dumbStyle = {
-	    ...Slider.baseStyle,
-	    height: 50
-    };
-	Slider.circleBase = {
+    const height = 350/data.length;
+    const width = 3;
+    const radius = 20;
+	InfoSlider.circleBase = {
 		position: 'relative',
-		width: 30,
-		height: 30,
+		width: radius,
+		height: radius,
 		borderRadius: '50%',
-		backgroundColor: 'blue',
 		margin: '0 auto',
-		top: -1
 	};
-	Slider.circleDumb = {
-		...Slider.circleBase,
-		opacity: 1
+	InfoSlider.circlePrev = {
+		...InfoSlider.circleBase,
+		backgroundColor: '#00adef'
 	}
-	Slider.extender = {
+	InfoSlider.circleNext = {
+		...InfoSlider.circleBase,
+		backgroundColor: 'white'
+	}
+	InfoSlider.extender = {
 		position: 'absolute',
+		width: width,
+		top: 0,
+		margin: '0 auto',
 		left: 0,
 		right: 0,
+		backgroundColor: '#00adef'
+	}
+	InfoSlider.extenderStatic = {
+		position: 'absolute',
+		width: width,
+		top: 0,
 		margin: '0 auto',
-		height: 80,
-		width: 10,
-		backgroundColor: 'blue'
+		left: 0,
+		right: 0,
+		height: ((data.length - 1) * height) + 1,
+		backgroundColor: 'white'
 	}
-    let componentArray = [];
-	let springObject = {};
-	let animation = 1;
-	console.log('index', index);
-	console.log('length', length-1);
-	if (action === 'INC' && index === 0) {
-		console.log('restart from top');
-		animation = 0;
-	} else if (action === 'DEC' && index === length-1) {
-		console.log('restart from bottom');
-		animation = 0;
-	}
-	for (let i = action === 'INC' ? 1 : 0 ; i < index; i++) {
-		let extenderClass;
-		if (i === index) {
-			return;
-		}
-		if (action === 'DEC' && i === index - 1) {
-			extenderClass = 'extender';
-		}
-		componentArray = [...componentArray,
-			<div>
-				<div className={`${styles[extenderClass]}`} style={Slider.extender}></div>
-				<div style={Slider.dumbStyle}></div>
-				<div style={Slider.circleDumb}></div>
+	InfoSlider.circleComponent = ({index, style}) => {
+		return (
+			<div style={{position: 'relative', height: height}}>
+				<div onClick={handleClick.bind(null, index)} style={style}></div>
 			</div>
-		]
-
+		)
 	}
-	if (action === 'INC') {
-		springObject.heightStart = 0;
-		springObject.heightEnd = 50;
-		springObject.opacityStart = 0;
-		springObject.opacityEnd = 1;
-	} else if (action === 'DEC')  {
-		springObject.heightStart = 50;
-		springObject.heightEnd = 0;
-		springObject.opacityStart = 1;
-		springObject.opacityEnd = 0;
-	}
+	InfoSlider.interpolateColor = d3.interpolateHclLong('#FFFFFF', '#00adef');
     return (
-        <div style={Slider.container}>
-	        {componentArray}
-	        { animation ? <Motion
-		        defaultStyle={{
-		        	height: springObject.heightStart,
-			        opacity: springObject.opacityStart
-		        }}
-		        style={{
-		        	height: spring(springObject.heightEnd),
-			        opacity: spring(springObject.opacityEnd)
-		        }}
-	        >
-		        {interpolatingStyle => (
-		            <div>
-		                <div style={{
-		                    height: interpolatingStyle.height,
-			                ...Slider.baseStyle}}></div>
-				        <div style={{
-				        	opacity: interpolatingStyle.opacity,
-					        ...Slider.circleBase}}></div>
-		            </div>
-		        )}
-	        </Motion> : null}
+        <div className={styles.sliderContainer}>
+	        <div className={styles.sliderCenter}>
+		        <div style={InfoSlider.extenderStatic}></div>
+		        {action === 'INC' && index === 0 ? <Motion
+			        defaultStyle={{backgroundColor: 1}}
+			        style={{backgroundColor: spring( 0, {stiffness: 60, dampness: 30})}}
+		        >
+			        {interpolatingStyle => {
+				        return (
+					        <div style={{
+						        ...InfoSlider.extenderStatic,
+						        backgroundColor: InfoSlider.interpolateColor(interpolatingStyle.backgroundColor)
+					        }}>
+					        </div>
+				        )
+			        }}
+		        </Motion> : null}
+		        {action === 'DEC' && index === data.length - 1 ? <Motion
+			        defaultStyle={{backgroundColor: 0}}
+			        style={{backgroundColor: spring( 1, {stiffness: 60, dampness: 30})}}
+		        >
+			        {interpolatingStyle => {
+				        return (
+					        <div style={{
+						        ...InfoSlider.extenderStatic,
+						        backgroundColor: InfoSlider.interpolateColor(interpolatingStyle.backgroundColor)
+					        }}>
+					        </div>
+				        )
+			        }}
+		        </Motion> : null}
+		        {(index !== 0 || index === 0 && action === 'DEC') && (index !== data.length - 1 || index === data.length - 1 && action === 'INC') ? <Motion
+			        defaultStyle={{
+				        height: action === 'INC' ? height * (prevIndex) : (height * (prevIndex)) + 1
+			        }}
+			        style={{
+				        height: spring(action === 'INC' ? (height * index) + 1 : height * index)
+			        }}
+		        >
+			        {interpolatingStyle => {
+				        return (
+					        <div style={{
+						        height: interpolatingStyle.height,
+						        ...InfoSlider.extender
+					        }}>
+					        </div>
+				        )
+			        }}
+		        </Motion> : null}
+
+		        {data.map((element, arrayIndex) => {
+		            if (index === 0 && arrayIndex === 0 && action === null) {
+				        return (
+					        <InfoSlider.circleComponent index={arrayIndex} style={InfoSlider.circlePrev} />
+				        )
+			        } else if (arrayIndex < index && action === 'INC' || arrayIndex <= index && action === 'DEC') {
+		                return (
+					        <InfoSlider.circleComponent index={arrayIndex} style={InfoSlider.circlePrev} />
+				        )
+
+			        } else if (arrayIndex === index && action === 'INC' || arrayIndex === index + 1 && action === 'DEC') {
+		                return (
+			                <Motion
+						        defaultStyle={{backgroundColor: action === 'INC' ? 0 : 1}}
+						        style={{backgroundColor: spring(action === 'INC' ? 1 : 0, {stiffness: 60, dampness: 30})}}
+					        >
+						        {interpolatingStyle => {
+						            return (
+							            <InfoSlider.circleComponent index={arrayIndex} style={{
+								        backgroundColor: InfoSlider.interpolateColor(interpolatingStyle.backgroundColor),
+							        ...InfoSlider.circleBase}} />
+						            )
+						        }}
+					        </Motion>
+				        )
+			        } else {
+				        return (
+					        <InfoSlider.circleComponent index={arrayIndex} style={InfoSlider.circleNext} />
+				        )
+			        }
+		        })}
+	        </div>
         </div>
     );
 };
 
-export default Slider;
+export default InfoSlider;
